@@ -1,0 +1,27 @@
+ALGORITHM sum_distinct_elements_array
+VAR
+    i,j : INTEGER;
+    sum_cummon,sum_distinct:INTEGER:=0;
+    set1,set2,set : ARRAY_OF INTEGER[];
+    found:BOOLEAN;
+    
+BEGIN
+
+    set:=concat(set1,set2);
+
+    FOR i FROM 0 TO set.length-1 DO
+        found:=false;
+       FOR j FROM 0 TO set.length-1  DO
+           IF (set[i]=set[j] AND i<>j) THEN
+               sum_cummon:=sum_cummon+set[i];
+               found:=true;
+           END_IF
+       END_FOR
+           IF (found=false) THEN
+               sum_distinct=sum_distinct+set[i];
+           END_IF
+    END_FOR
+
+    Write("the summe is :");
+    Write(sum_distinct);
+END

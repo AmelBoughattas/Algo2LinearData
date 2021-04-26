@@ -1,0 +1,31 @@
+ALGORITHM sum_distinct_elements_Hash_Table
+VAR
+    htab:HASH_TABLE<INTEGER,INTEGER>;
+    set1,set2,set,tab1 : ARRAY_OF INTEGER[];
+    sum_cummon,sum_distinct:INTEGER:=0;
+    count,i: INTEGER;
+
+BEGIN
+
+    set=concat(set1,set2);
+    FOR i FROM 0 TO set.length-1 DO
+        count:=1;
+        IF (htab.lookup(set[i])=true) THEN
+            count:= htab.get(set[i])+1;
+        ELSE
+           tab1.push(set[i]);
+        END_IF
+             htab.insert(set[i],count);
+    END_FOR
+
+    FOR i FROM 0 TO tab1.length-1  DO
+        IF (htab.get(tab1[i]<>1)) THEN
+        sum_cummon:= count+ tab1[i] * htab.get(tab1[i]);
+        ELSE
+          sum_distinct:=count+tab1[i];
+        END_IF
+    END_FOR
+
+    Write("the summe is :");
+    Write(sum_distinct);
+END

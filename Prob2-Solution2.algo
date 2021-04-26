@@ -1,0 +1,24 @@
+ALGORITHM sum_overlapping_HashTable
+VAR
+    hTab : HASH_TABLE<INTEGER,INTEGER>
+    set1 : ARRAY_OF INTEGER[50];
+    set2 : ARRAY_OF INTEGER[50];
+    i,j : INTEGER;
+    sum:INTEGER:=0;
+    count:INTEGER:=1;
+BEGIN
+    FOR i FROM 0 TO set1.length-1 STEP 1  DO
+        FOR j FROM 0 TO set2.length-1 STEP 1  DO
+            IF (set1[i]=set2[j]) THEN
+                hTab.insert(1,set1[i]);
+                hTab.insert(count+1,set2[j])
+            END_IF
+            IF (hTab.get(set1[1])=1) THEN
+                sum = sum + set[i];
+            END_IF
+        END_FOR
+        count:=1;
+    END_FOR
+    Write("Sum of overlapping elements:");
+    Write(sum);
+END
